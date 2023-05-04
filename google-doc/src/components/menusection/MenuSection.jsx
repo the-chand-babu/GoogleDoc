@@ -26,7 +26,9 @@ function MenuSection() {
         <div className={styles.fileNameContainer}>
           <div className={styles.fileName}>
             <div>
-              <span style={{ fontSize: "20px" }}>Untitled document</span>
+              <span style={{ fontSize: "20px" }} contentEditable>
+                Untitled document
+              </span>
             </div>
             <div style={{ marginTop: "6px" }}>
               <span>

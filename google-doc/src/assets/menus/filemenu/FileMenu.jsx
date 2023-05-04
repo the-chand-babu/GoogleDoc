@@ -97,7 +97,7 @@ export default function FileMenu() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem onClick={() => window.location.reload(true)}>
                       <ArticleIcon />
                       &nbsp;&nbsp; New
                     </MenuItem>
