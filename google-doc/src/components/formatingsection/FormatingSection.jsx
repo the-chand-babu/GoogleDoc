@@ -29,7 +29,7 @@ function FormatingSection() {
         <div className={styles.MainLeft1Icones}><AiOutlinePrinter /></div>
         <div className={styles.MainLeft1Icones}><MdOutlineSpellcheck /></div>
         <div className={styles.MainLeft1Icones}><TfiPaintRoller /></div>
-        <div className={styles.MainLeft1Icones}><Zoom /></div>
+        <div className={styles.MainLeft1IconesZoom}><Zoom /></div>
       </div>
       
       <div className={styles.MainLeft2}>

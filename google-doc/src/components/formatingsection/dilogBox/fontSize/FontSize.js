@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import styles from './FontSize.module.css'
+import { AiOutlinePlus,AiOutlineMinus } from "react-icons/ai";
 
 function FontSize() {
     const [count, setCount] = useState(0)
@@ -9,7 +10,7 @@ function FontSize() {
     }
   return (
     <div className={styles.options}>
-        <button onClick={()=>setCount(count-1)}>-</button>
+        <button className={styles.btn} onClick={()=>setCount(count-1)}><AiOutlineMinus/></button>
         <select className={styles.option1}>
     <option> {count}</option>
     <hr/>
@@ -23,7 +24,7 @@ function FontSize() {
     <option className={styles.option}>{25}</option>
     <option className={styles.option}>{35}</option>
    </select>
-        <button  onClick={()=>setCount(count+1)}>+</button>  
+        <button className={styles.btn}  onClick={()=>setCount(count+1)}><AiOutlinePlus/></button>  
     </div>
   )
 }
