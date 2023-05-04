@@ -4,50 +4,29 @@
     margin: 0.5rem;
     border-radius: 0.8rem;
     font-size: 1.4rem;
-    height: 7.8vh;
+    height:7vh;
     align-items: center;
     background-color: rgb(238, 244, 248);
-    padding-left: 0.6rem;
-    padding-right: 1rem;
+
 }
 .MainLeft{
     display: flex;
-    justify-content: space-around;
-    font-size: 1.4rem;
     align-items: center;
-    width: 60%;
+    width: 50%;
+    padding: 0.5rem;
+    margin: 0.1rem;
 }
 .MainLeft1{
     display: flex;
-    height: 50px; /* sets the height of the element to 50 pixels */
-    position: relative; /* sets the position property to relative */
-   
+    height: 50px; 
+    position: relative;
 }
-
-.MainLeft1::after {
-    content: ""; /* adds a pseudo-element */
-    position: absolute; /* sets the position property to absolute */
-    right: 0; /* sets the distance between the border and the right edge of the element */
-    top: 25%; /* sets the distance between the border and the top edge of the element */
-    height: 50%; /* sets the height of the border to half of the element's height */
-    border-right: 1px solid black; /* sets a solid black border to the right */
-  }
-
 .MainLeft2{
-    display: flex;
-    height: 40px; /* sets the height of the element to 50 pixels */
-    position: relative; /* sets the position property to relative */
-    padding: 0.4rem;
-    width: 9rem;
+  padding: 0.3rem;
+  margin: 0.2rem;
+ 
 }
-.MainLeft2::after{
-    content: ""; /* adds a pseudo-element */
-    position: absolute; /* sets the position property to absolute */
-    right: 0; /* sets the distance between the border and the right edge of the element */
-    top: 25%; /* sets the distance between the border and the top edge of the element */
-    height: 50%; /* sets the height of the border to half of the element's height */
-    border-right: 1px solid black; /* sets a solid black border to the right */
-}
+
 
 .MainLeft3{
     display: flex;
@@ -66,13 +45,19 @@
     display: flex;
 }
 .MainLeft1Icones{
-    margin: 0.25rem;
+    margin: 0.15rem;
     padding: 0.2rem;
-    height: 80%;
+    height: 60%;
     border-radius: 0.2rem;
 }
 
 .MainLeft1Icones:hover{
     background-color: rgb(205, 215, 223);
    
+}
+.MainLeft1IconesZoom{
+    margin: 0.25rem;
+    padding: 0.2rem;
+    height: 80%;
+    border-radius: 0.2rem;
 }
