@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./FormatingSection.module.css";
 import { BiUndo, BiRedo } from "react-icons/bi";
 import { GrFormEdit, GrDown } from "react-icons/gr";
@@ -20,12 +20,38 @@ import Font from "./dilogBox/font/Font";
 import FontSize from "./dilogBox/fontSize/FontSize";
 
 function FormatingSection() {
+  const inputRef = useRef(null);
+
+  const textPosition = [
+    {
+        icon: <BiUndo   style={{ fontSize: "21px" }}/>,
+        action: "undo",
+      },
+      {
+        icon: <BiRedo  style={{ fontSize: "21px" }}/>,
+        action: "redo",
+      }
+  ]
+  
+  function handlePosition(element) {
+    document.execCommand(element.action);
+  }
+  function handleImageOpen() {
+    inputRef.current.click()
+  }
+  function captureImage(event) {
+    if (event.target.files[0] ) {
+      console.log(event.target.files[0])
+      document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
+    }
+  }
   return (
     <div className={styles.MainContainer}>
     <div className={styles.MainLeft}>
       <div className={styles.MainLeft1}>
-        <div className={styles.MainLeft1Icones}><BiUndo /></div>
-        <div className={styles.MainLeft1Icones}><BiRedo /></div>
+      {textPosition.map((element) => (
+          <span onClick={() => handlePosition(element)}>{element.icon}</span>
+        ))}
         <div className={styles.MainLeft1Icones}><AiOutlinePrinter /></div>
         <div className={styles.MainLeft1Icones}><MdOutlineSpellcheck /></div>
         <div className={styles.MainLeft1Icones}><TfiPaintRoller /></div>
@@ -52,7 +78,19 @@ function FormatingSection() {
       <div className={styles.MainLeft6}>
       <div className={styles.MainLeft1Icones}><MdInsertLink /></div>
       <div className={styles.MainLeft1Icones}><MdOutlineAddComment /></div>
-      <div className={styles.MainLeft1Icones}> <BiImages /></div>
+      
+      <div>
+          <BiImages
+          onClick={handleImageOpen}
+            style={{ fontSize: "20", marginLeft: "7px",marginTop:'-0.5rem',fontWeight:'lighter' }}
+          />
+          <input 
+          onChange={captureImage}
+          hidden
+          ref={inputRef}
+          type="file"
+          />
+        </div>
       </div>
       <div className={styles.MainLeft7}>
       <div className={styles.MainLeft1Icones}> <BiAlignLeft /></div>
