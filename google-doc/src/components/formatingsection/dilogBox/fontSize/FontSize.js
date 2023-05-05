@@ -1,32 +1,30 @@
-import React from 'react'
-import { useState } from 'react'
-import styles from './FontSize.module.css'
-import { AiOutlinePlus,AiOutlineMinus } from "react-icons/ai";
+import React from "react";
+import { useState } from "react";
+import styles from "./FontSize.module.css";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+
+const fontSizeList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function FontSize() {
-    const [count, setCount] = useState(0)
-    if(count<0){
-        setCount(0)
-    }
+  const handleFontSize = (e) => {
+    document.execCommand("fontSize", false, e.target.value);
+  };
+
   return (
     <div className={styles.options}>
-        <button className={styles.btn} onClick={()=>setCount(count-1)}><AiOutlineMinus/></button>
-        <select className={styles.option1}>
-    <option> {count}</option>
-    <hr/>
-    <option className={styles.option}>{9}</option>
-    <option className={styles.option}>{9}</option>
-    <option className={styles.option}>{10}</option>
-    <option className={styles.option}>{11}</option>
-    <option className={styles.option}>{12}</option>
-    <option className={styles.option}>{14}</option>
-    <option className={styles.option}>{18}</option>
-    <option className={styles.option}>{25}</option>
-    <option className={styles.option}>{35}</option>
-   </select>
-        <button className={styles.btn}  onClick={()=>setCount(count+1)}><AiOutlinePlus/></button>  
+      <button className={styles.btn}>
+        <AiOutlineMinus />
+      </button>
+      <select id="fontSize" onChange={handleFontSize}>
+        {fontSizeList.map((ele) => (
+          <option key={ele}>{ele}</option>
+        ))}
+      </select>
+      <button className={styles.btn}>
+        <AiOutlinePlus />
+      </button>
     </div>
-  )
+  );
 }
 
-export default FontSize
+export default FontSize;

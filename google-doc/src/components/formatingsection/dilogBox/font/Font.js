@@ -1,5 +1,10 @@
+
 import React from "react";
 import styles from "./font.module.css";
+
+import React from 'react'
+import styles from './font.module.css'
+
 
 export default function Font() {
   return (
