@@ -8,7 +8,6 @@ import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 import { jsPDF } from "jspdf";
 import { nameOfFile } from "../../components/menusection/MenuSection";
 
-
 export let handclick;
 export let changeColor;
 export let backColor;
@@ -18,20 +17,16 @@ export let handleSavePdf;
 export let handScratch;
 
 function Home() {
-
   const printDiv = useRef();
   const [open, setOpen] = useState(true);
   const [openInput, setOpenInput] = useState(false);
   const divRef = useRef();
-
-
 
   handleSavePdf = () => {
     const input = document.getElementById("my-div");
     const pdf = new jsPDF();
     pdf.text(input.innerText, 10, 10);
     pdf.save(`${nameOfFile}.pdf`);
-    // });
   };
 
   React.useEffect(() => {
@@ -47,14 +42,9 @@ function Home() {
     };
   }, []);
 
-  
-
-  
-
   const handleClickmenu = () => {
     setOpen(!open);
   };
-
 
   handclick = (tagname) => {
     document.execCommand(tagname, false, null);
@@ -82,21 +72,18 @@ function Home() {
     }
   };
 
-  return (
-    <div>
-      <div className={style.menusection}>
-        <MenuSection />
-      </div>
-      <FormatingSection />
-
-
-  
+  // return (
+  //   <div>
+  //     <div className={style.menusection}>
+  //       <MenuSection />
+  //     </div>
+  //     <FormatingSection />
 
   return (
     <div>
       <MenuSection />
-    
-      <FormatingSection printDiv={printDiv}  />
+
+      <FormatingSection printDiv={printDiv} />
 
       <div className={style.container}>
         {open ? (
@@ -136,13 +123,8 @@ function Home() {
         )}
 
         <div
-
           id="my-div"
           ref={divRef}
-
-        id="edit"
-        ref={printDiv}
-
           contentEditable={true}
           className={style.mainContainer}
         ></div>
@@ -152,4 +134,3 @@ function Home() {
 }
 
 export default Home;
-

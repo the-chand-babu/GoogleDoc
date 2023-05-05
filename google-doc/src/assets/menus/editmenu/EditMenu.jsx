@@ -17,6 +17,7 @@ import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import SelectAllIcon from "@mui/icons-material/SelectAll";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import FindReplaceIcon from "@mui/icons-material/FindReplace";
+import style from './editbar.module.css'
 
 export default function EditMenu() {
   const [open, setOpen] = React.useState(false);
@@ -68,6 +69,7 @@ export default function EditMenu() {
           Edit
         </Button>
         <Popper
+        className={style.Editbar}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

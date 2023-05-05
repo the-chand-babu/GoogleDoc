@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import styles from "./FontSize.module.css";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 

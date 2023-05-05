@@ -65,7 +65,7 @@ console.log(printDiv)
           </div>
           <div className={styles.MainLeft1Icones}>
 
-            <AiOutlinePrinter />
+          
 
             <button>
               <AiOutlinePrinter />
@@ -80,7 +80,7 @@ console.log(printDiv)
           </div>
           <div className={styles.MainLeft1IconesZoom}>
 
-            <Zoom />
+           
 
             <Zoom printDiv={printDiv} />
 
@@ -99,20 +99,6 @@ console.log(printDiv)
         <div className={styles.MainLeft5}>
           <div className={styles.MainLeft1Icones}>
 
-            <button
-              onClick={() => handclick("bold")}
-              style={{ border: "none", backgroundColor: "#EEF4F8" }}
-            >
-              <ImBold />
-            </button>{" "}
-          </div>
-
-          <div className={styles.MainLeft1Icones}>
-            <button
-              onClick={() => handclick("italic")}
-              style={{ border: "none", backgroundColor: "#EEF4F8" }}
-            >
-
             <button onClick={() => handleclick("bold")}>
               <ImBold />
             </button>
@@ -125,11 +111,7 @@ console.log(printDiv)
           </div>
           <div className={styles.MainLeft1Icones}>
 
-            <button
-              onClick={() => handclick("underline")}
-              style={{ border: "none", backgroundColor: "#EEF4F8" }}
-            >
-
+            
             <button onClick={() => handleclick("underline")}>
 
               <AiOutlineUnderline />
@@ -148,7 +130,7 @@ console.log(printDiv)
               S
             </button>
           </div>
-          <div className={styles.MainLeft1Icones}>
+          {/* <div className={styles.MainLeft1Icones}>
             <input
               type="color"
               onChange={(event) => changeColor(event.target.value)}
@@ -159,9 +141,9 @@ console.log(printDiv)
               type="color"
               onChange={(event) => backColor(event.target.value)}
             />
-          </div>
+          </div> */}
           <div className={styles.MainLeft1Icones}>
-            <AiOutlineHighlight />
+            {/* <AiOutlineHighlight /> */}
 
             {/* <TbTextColor /> */}
             <input onChange={(e) => handleColor(e)} type="color" />

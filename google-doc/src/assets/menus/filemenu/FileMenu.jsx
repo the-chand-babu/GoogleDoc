@@ -24,6 +24,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import DescriptionIcon from "@mui/icons-material/Description";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import { handleSavePdf } from "../../../pages/home/Home";
+import style from './filemenu.module.css'
 
 export default function FileMenu() {
   const [open, setOpen] = React.useState(false);
@@ -61,8 +62,8 @@ export default function FileMenu() {
   }, [open]);
 
   return (
-    <Stack direction="row" spacing={2}>
-      <div>
+    <Stack direction="row" spacing={2} >
+      <div >
         <Button
           ref={anchorRef}
           id="composition-button"
@@ -75,6 +76,7 @@ export default function FileMenu() {
           File
         </Button>
         <Popper
+        className={style.menuContainer}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}
