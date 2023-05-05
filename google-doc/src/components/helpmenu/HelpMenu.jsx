@@ -66,6 +66,7 @@ export default function HelpMenu() {
           Help
         </Button>
         <Popper
+        sx={{zIndex:"1000"}}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

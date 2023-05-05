@@ -76,6 +76,7 @@ export default function InsertMenu() {
           Insert
         </Button>
         <Popper
+        sx={{zIndex:"1000"}}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

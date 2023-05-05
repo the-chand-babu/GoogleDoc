@@ -1,7 +1,15 @@
 .options{
     display: flex;
     padding: 0.3rem;
-     margin-left: 2.5rem;
+     margin-left: 10px;
+     height: 66%;
+     width: 39px;
+   
+
+}
+.options select{
+    background-color: rgb(238, 244, 248);
+
 }
 .btn{
     width: 2rem;

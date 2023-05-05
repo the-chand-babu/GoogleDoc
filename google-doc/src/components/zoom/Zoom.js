@@ -32,6 +32,7 @@ export default function Zoom({printDiv}) {
     <option className={styles.option}>150%</option>
     <option className={styles.option}>200%</option>
   
+  
    </select>
   )
 }

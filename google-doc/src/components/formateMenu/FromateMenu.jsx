@@ -72,6 +72,7 @@ export default function FormatMenu() {
           Format
         </Button>
         <Popper
+        sx={{zIndex:"1000"}}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

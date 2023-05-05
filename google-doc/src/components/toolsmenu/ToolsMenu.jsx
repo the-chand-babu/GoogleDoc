@@ -73,6 +73,7 @@ export default function ToolsMenu() {
           Tools
         </Button>
         <Popper
+        sx={{zIndex:"100"}}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

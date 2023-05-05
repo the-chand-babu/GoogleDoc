@@ -61,6 +61,7 @@ export default function ExtensionsMenu() {
           Extensions{" "}
         </Button>
         <Popper
+        sx={{zIndex:"1000"}}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

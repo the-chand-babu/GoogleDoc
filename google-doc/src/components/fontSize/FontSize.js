@@ -11,17 +11,12 @@ function FontSize() {
 
   return (
     <div className={styles.options}>
-      <button className={styles.btn}>
-        <AiOutlineMinus />
-      </button>
       <select id="fontSize" onChange={handleFontSize}>
         {fontSizeList.map((ele) => (
           <option key={ele}>{ele}</option>
         ))}
       </select>
-      <button className={styles.btn}>
-        <AiOutlinePlus />
-      </button>
+      
     </div>
   );
 }

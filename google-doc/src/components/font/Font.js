@@ -1,40 +1,40 @@
 import React from 'react'
 // import styles from './Font.module.css'
+const fontFamilyList = [
+  "serif",
+  "sans-serif",
+  "monospace",
+  "cursive",
+  "fantasy",
+  "system-ui",
+  "ui-serif",
+  "Roboto",
+  "ui-monospace",
+  "Montserrat",
+  "emoji",
+  "math",
+  "fangsong",
+  "Raleway",
+];
 
 export default function Font() {
-  const fontFamilyList = [
-    "serif",
-    "arial",
-    "sans-serif",
-    "monospace",
-    "cursive",
-    "fantasy",
-    "system-ui",
-    "ui-serif",
-    "ui-sans-serif",
-    "ui-monospace",
-    "ui-rounded",
-    "emoji",
-    "math",
-    "fangsong",
-    "Georgia",
-    "Times New Roman",
-    "Impact",
-  ];
-  
-  
-  
-  function handlefamily(e){
-    document.execCommand("fontName", "", e.target.value);
+
+
+  const handleFontStyle=(e)=>{
+    document.execCommand("fontName", false, e.target.value);
+
   }
 
   return (
-    <select onChange={handlefamily}>
-              <option>san-sherif</option>
-              {fontFamilyList.map((element) => (
-                  <option >{element}</option>
-              
-              ))}
-             </select>
+    <select
+    // className={style.fontStyle}
+    // id="fontStyle"
+    onChange={handleFontStyle}
+  >
+    <option>{"serif"}</option>
+    {fontFamilyList.map((x) => (
+      <option key={x}>{x}</option>
+    ))}
+  </select>
 )
 }

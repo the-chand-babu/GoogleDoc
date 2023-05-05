@@ -14,10 +14,11 @@ import { MdInsertLink } from "react-icons/md";
 import { TbTextColor } from "react-icons/tb";
 import { MdOutlineAddComment } from "react-icons/md";
 import { AiOutlineUnderline } from "react-icons/ai";
+import {BiAlignMiddle,BiAlignRight} from 'react-icons/bi'
 import FontStyles from "../../components/fontStyle/FontStyles";
 import Font from "../../components/font/Font";
 import FontSize from "../../components/fontSize/FontSize";
-import { handScratch } from "../../home/Home";
+// import { handScratch } from "../../home/Home";
 
 
 const textPosition = [
@@ -39,6 +40,8 @@ const textPosition = [
 function FormatingSection({ printDiv }) {
   const inputRef = useRef();
   console.log(printDiv);
+
+
   const handleclick = (action) => {
     document.execCommand(action);
   };
@@ -51,7 +54,9 @@ function FormatingSection({ printDiv }) {
     document.execCommand("backColor", "", e.target.value);
   };
 
-  const alignItemsFunc=()=>{
+  const handleAlign=(action)=>{
+   
+    document.execCommand(action);
 
   }
 
@@ -59,6 +64,14 @@ function FormatingSection({ printDiv }) {
     document.execCommand(element.action);
   }
   
+  
+ const handleScratch = () => {
+    document.execCommand("strikeThrough");
+  };
+
+  // handheadingclick = (tagname) => {
+  //   document.execCommand("formatBlock", false, tagname);
+  // };
 
   // const handlePrint = useReactToPrint({
   //   content: () => divRef.current,
@@ -114,7 +127,7 @@ function FormatingSection({ printDiv }) {
           </div>
           <div className={styles.MainLeft1Icones}>
             <button
-              onClick={() => handScratch()}
+              onClick={() => handleScratch()}
               style={{
                 border: "none",
                 backgroundColor: "#EEF4F8",
@@ -162,12 +175,23 @@ function FormatingSection({ printDiv }) {
         <div className={styles.MainLeft7}>
           <div className={styles.MainLeft1Icones}>
             {" "}
-            <BiAlignLeft />
+            <button className={styles.leftAlign} onClick={()=>handleAlign("justifyLeft")}>
+            <BiAlignLeft    />
+
+            </button>
+            <button onClick={()=>handleAlign("justifyCenter")} className={styles.middleAlign}>
+            <BiAlignMiddle   />
+
+            </button>
             {/* <select onChange={(e) => alignItemsFunc(e.target.value)}>
               <option> Left</option>
               <option> Center</option>
               <option> Right</option>
             </select> */}
+            <button onClick={()=>handleAlign("justifyRight")} className={styles.rightAlign}>
+            <BiAlignRight   />
+
+            </button>
           
           </div>
           <div className={styles.MainLeft1Icones}>

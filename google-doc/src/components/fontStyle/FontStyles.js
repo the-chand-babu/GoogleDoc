@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./FontStyles.module.css";
-import { handclick, handheadingclick } from "../../home/Home";
 
 export default function FontStyles() {
+
+const handheadingclick=(tagname)=>{
+    document.execCommand("formatBlock", false, tagname);
+
+}
+
+
   return (
     <select
       className={styles.option1}

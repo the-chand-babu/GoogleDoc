@@ -8,13 +8,10 @@ import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 import { jsPDF } from "jspdf";
 import { nameOfFile } from "../container/navbar/MenuSection";
 
-export let handclick;
-export let changeColor;
-export let backColor;
-export let handheadingclick;
-export let alignItemsFunc;
+
+
 export let handleSavePdf;
-export let handScratch;
+
 
 function Home() {
   const printDiv = useRef();
@@ -46,31 +43,10 @@ function Home() {
     setOpen(!open);
   };
 
-  handclick = (tagname) => {
-    document.execCommand(tagname, false, null);
-  };
-  handScratch = () => {
-    document.execCommand("strikeThrough");
-  };
-  handheadingclick = (tagname) => {
-    document.execCommand("formatBlock", false, tagname);
-  };
+ 
 
-  changeColor = (color) => {
-    document.execCommand("foreColor", false, color);
-  };
-  backColor = (color) => {
-    document.execCommand("BackColor", false, color);
-  };
-  alignItemsFunc = (align) => {
-    if (align == "Center") {
-      document.execCommand("justifyCenter", false, align);
-    } else if (align == "Left") {
-      document.execCommand("JustifyLeft");
-    } else if (align == "Right") {
-      document.execCommand("JustifyRight");
-    }
-  };
+ 
+
 
   return (
     <div>
