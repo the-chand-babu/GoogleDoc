@@ -18,6 +18,15 @@ import { AiOutlineUnderline } from "react-icons/ai";
 import FontStyles from "./dilogBox/fontStyles/FontStyles";
 import Font from "./dilogBox/font/Font";
 import FontSize from "./dilogBox/fontSize/FontSize";
+
+import { handScratch } from "../../pages/home/Home";
+import {
+  handclick,
+  changeColor,
+  backColor,
+  alignItemsFunc,
+} from "../../pages/home/Home";
+
 import { useReactToPrint } from "react-to-print";
 import { divRef } from "../../pages/home/Home";
 
@@ -43,6 +52,7 @@ console.log(printDiv)
   //   documentTitle: "xyz",
   // });
 
+
   return (
     <div className={styles.MainContainer}>
       <div className={styles.MainLeft}>
@@ -54,9 +64,13 @@ console.log(printDiv)
             <BiRedo />
           </div>
           <div className={styles.MainLeft1Icones}>
+
+            <AiOutlinePrinter />
+
             <button>
               <AiOutlinePrinter />
             </button>
+
           </div>
           <div className={styles.MainLeft1Icones}>
             <MdOutlineSpellcheck />
@@ -65,7 +79,11 @@ console.log(printDiv)
             <TfiPaintRoller />
           </div>
           <div className={styles.MainLeft1IconesZoom}>
+
+            <Zoom />
+
             <Zoom printDiv={printDiv} />
+
           </div>
         </div>
 
@@ -80,27 +98,78 @@ console.log(printDiv)
         </div>
         <div className={styles.MainLeft5}>
           <div className={styles.MainLeft1Icones}>
+
+            <button
+              onClick={() => handclick("bold")}
+              style={{ border: "none", backgroundColor: "#EEF4F8" }}
+            >
+              <ImBold />
+            </button>{" "}
+          </div>
+
+          <div className={styles.MainLeft1Icones}>
+            <button
+              onClick={() => handclick("italic")}
+              style={{ border: "none", backgroundColor: "#EEF4F8" }}
+            >
+
             <button onClick={() => handleclick("bold")}>
               <ImBold />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
             <button onClick={() => handleclick("italic")}>
+
               <BiItalic />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
+
+            <button
+              onClick={() => handclick("underline")}
+              style={{ border: "none", backgroundColor: "#EEF4F8" }}
+            >
+
             <button onClick={() => handleclick("underline")}>
+
               <AiOutlineUnderline />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
+
+            <button
+              onClick={() => handScratch()}
+              style={{
+                border: "none",
+                backgroundColor: "#EEF4F8",
+                fontWeight: "bold",
+              }}
+            >
+              S
+            </button>
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <input
+              type="color"
+              onChange={(event) => changeColor(event.target.value)}
+            />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <input
+              type="color"
+              onChange={(event) => backColor(event.target.value)}
+            />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <AiOutlineHighlight />
+
             {/* <TbTextColor /> */}
             <input onChange={(e) => handleColor(e)} type="color" />
           </div>
           <div className={styles.MainLeft1Icones}>
             {/* <AiOutlineHighlight /> */}
             <input onChange={(e) => handleBacground(e)} type="color" />
+
           </div>
         </div>
         <div className={styles.MainLeft6}>
@@ -118,7 +187,16 @@ console.log(printDiv)
         <div className={styles.MainLeft7}>
           <div className={styles.MainLeft1Icones}>
             {" "}
+
+            {/* <BiAlignLeft /> */}
+            <select onChange={(e) => alignItemsFunc(e.target.value)}>
+              <option> Left</option>
+              <option> Center</option>
+              <option> Right</option>
+            </select>
+
             <BiAlignLeft />
+
           </div>
           <div className={styles.MainLeft1Icones}>
             {" "}

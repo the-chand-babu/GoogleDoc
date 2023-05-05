@@ -23,6 +23,7 @@ import PermDeviceInformationIcon from "@mui/icons-material/PermDeviceInformation
 import LanguageIcon from "@mui/icons-material/Language";
 import DescriptionIcon from "@mui/icons-material/Description";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
+import { handleSavePdf } from "../../../pages/home/Home";
 
 export default function FileMenu() {
   const [open, setOpen] = React.useState(false);
@@ -97,7 +98,7 @@ export default function FileMenu() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem onClick={() => window.location.reload(true)}>
                       <ArticleIcon />
                       &nbsp;&nbsp; New
                     </MenuItem>
@@ -120,7 +121,7 @@ export default function FileMenu() {
                       &nbsp;&nbsp; Email
                     </MenuItem>
 
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem onClick={() => handleSavePdf()}>
                       <SaveAltIcon />
                       &nbsp;&nbsp; Download
                     </MenuItem>

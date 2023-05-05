@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FcDocument } from "react-icons/fc";
 import { AiOutlineStar } from "react-icons/ai";
 import { MdDriveFileMoveOutline } from "react-icons/md";
@@ -10,7 +10,13 @@ import Menu from "../../assets/menu/Menu";
 import ProfileMenu from "../../assets/menus/profilemenu/ProfileMenu";
 import { TbLock } from "react-icons/tb";
 
+export let nameOfFile = "";
 function MenuSection() {
+  const [name, setName] = useState("Untitled document");
+  useEffect(() => {
+    nameOfFile = name;
+  }, [name]);
+
   return (
     <div className={styles.mainContainer}>
       <div style={{ display: "flex" }}>
@@ -26,7 +32,19 @@ function MenuSection() {
         <div className={styles.fileNameContainer}>
           <div className={styles.fileName}>
             <div>
-              <span style={{ fontSize: "20px" }}>Untitled document</span>
+              <span>
+                <input
+                  type="text"
+                  style={{
+                    fontSize: "19px",
+                    width: "10rem",
+                    border: "none",
+                    backgroundColor: "#F9FBFD",
+                  }}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </span>
             </div>
             <div style={{ marginTop: "6px" }}>
               <span>
