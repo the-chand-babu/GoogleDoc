@@ -5,7 +5,7 @@ import ViewMenu from "../viewmenu/ViewMenu";
 import InsertMenu from "../insertmenu/InsertMenu";
 import FormatMenu from "../formateMenu/FromateMenu";
 import ToolsMenu from "../toolsmenu/ToolsMenu";
-import ExtensionsMenu from "../extensionMenu/ExtensionMenu";
+import ExtensionsMenu from "../extensionsmenu/ExtensionMenu";
 import HelpMenu from "../helpmenu/HelpMenu";
 import styles from"./Menu.module.css";
 

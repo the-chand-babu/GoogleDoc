@@ -162,13 +162,13 @@ function FormatingSection({ printDiv }) {
         <div className={styles.MainLeft7}>
           <div className={styles.MainLeft1Icones}>
             {" "}
-            {/* <BiAlignLeft /> */}
-            <select onChange={(e) => alignItemsFunc(e.target.value)}>
+            <BiAlignLeft />
+            {/* <select onChange={(e) => alignItemsFunc(e.target.value)}>
               <option> Left</option>
               <option> Center</option>
               <option> Right</option>
-            </select>
-            <BiAlignLeft />
+            </select> */}
+          
           </div>
           <div className={styles.MainLeft1Icones}>
             {" "}
