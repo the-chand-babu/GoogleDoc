@@ -14,6 +14,7 @@ export let backColor;
 export let handheadingclick;
 export let alignItemsFunc;
 export let handleSavePdf;
+export let handScratch;
 
 function Home() {
   const [open, setOpen] = useState(true);
@@ -51,11 +52,12 @@ function Home() {
   };
 
   handclick = (tagname) => {
-    console.log(tagname);
     document.execCommand(tagname, false, null);
   };
+  handScratch = () => {
+    document.execCommand("strikeThrough");
+  };
   handheadingclick = (tagname) => {
-    console.log(tagname);
     document.execCommand("formatBlock", false, tagname);
   };
 

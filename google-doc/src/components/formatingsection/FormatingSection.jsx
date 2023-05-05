@@ -18,6 +18,7 @@ import { AiOutlineUnderline } from "react-icons/ai";
 import FontStyles from "./dilogBox/fontStyles/FontStyles";
 import Font from "./dilogBox/font/Font";
 import FontSize from "./dilogBox/fontSize/FontSize";
+import { handScratch } from "../../pages/home/Home";
 import {
   handclick,
   changeColor,
@@ -61,19 +62,40 @@ function FormatingSection() {
         </div>
         <div className={styles.MainLeft5}>
           <div className={styles.MainLeft1Icones}>
-            <button onClick={() => handclick("bold")}>
+            <button
+              onClick={() => handclick("bold")}
+              style={{ border: "none", backgroundColor: "#EEF4F8" }}
+            >
               <ImBold />
             </button>{" "}
           </div>
 
           <div className={styles.MainLeft1Icones}>
-            <button onClick={() => handclick("italic")}>
+            <button
+              onClick={() => handclick("italic")}
+              style={{ border: "none", backgroundColor: "#EEF4F8" }}
+            >
               <BiItalic />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
-            <button onClick={() => handclick("underline")}>
+            <button
+              onClick={() => handclick("underline")}
+              style={{ border: "none", backgroundColor: "#EEF4F8" }}
+            >
               <AiOutlineUnderline />
+            </button>
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <button
+              onClick={() => handScratch()}
+              style={{
+                border: "none",
+                backgroundColor: "#EEF4F8",
+                fontWeight: "bold",
+              }}
+            >
+              S
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
