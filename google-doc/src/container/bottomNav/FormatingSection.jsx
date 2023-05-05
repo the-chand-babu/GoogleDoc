@@ -2,9 +2,8 @@ import React, { useRef } from "react";
 import styles from "./FormatingSection.module.css";
 import { BiUndo, BiRedo } from "react-icons/bi";
 import { GrFormEdit, GrDown } from "react-icons/gr";
-
 import { AiOutlinePrinter, AiOutlineHighlight } from "react-icons/ai";
-import Zoom from "./dilogBox/Zoom/Zoom";
+import Zoom from "../../components/zoom/Zoom";
 import { MdOutlineSpellcheck } from "react-icons/md";
 import { RxTextAlignMiddle } from "react-icons/rx";
 import { FiMoreVertical } from "react-icons/fi";
@@ -15,24 +14,31 @@ import { MdInsertLink } from "react-icons/md";
 import { TbTextColor } from "react-icons/tb";
 import { MdOutlineAddComment } from "react-icons/md";
 import { AiOutlineUnderline } from "react-icons/ai";
-import FontStyles from "./dilogBox/fontStyles/FontStyles";
-import Font from "./dilogBox/font/Font";
-import FontSize from "./dilogBox/fontSize/FontSize";
+import FontStyles from "../../components/fontStyle/FontStyles";
+import Font from "../../components/font/Font";
+import FontSize from "../../components/fontSize/FontSize";
+import { handScratch } from "../../home/Home";
 
-import { handScratch } from "../../pages/home/Home";
-import {
-  handclick,
-  changeColor,
-  backColor,
-  alignItemsFunc,
-} from "../../pages/home/Home";
 
-import { useReactToPrint } from "react-to-print";
-import { divRef } from "../../pages/home/Home";
+const textPosition = [
+  {
+      icon: <BiUndo   style={{ fontSize: "21px" }}/>,
+      action: "undo",
+    },
+    {
+      icon: <BiRedo  style={{ fontSize: "21px" }}/>,
+      action: "redo",
+    }
+]
 
-function FormatingSection({printDiv}) {
+
+
+
+
+
+function FormatingSection({ printDiv }) {
   const inputRef = useRef();
-console.log(printDiv)
+  console.log(printDiv);
   const handleclick = (action) => {
     document.execCommand(action);
   };
@@ -45,32 +51,30 @@ console.log(printDiv)
     document.execCommand("backColor", "", e.target.value);
   };
 
- 
+  const alignItemsFunc=()=>{
+
+  }
+
+  function handlePosition(element) {
+    document.execCommand(element.action);
+  }
+  
 
   // const handlePrint = useReactToPrint({
   //   content: () => divRef.current,
   //   documentTitle: "xyz",
   // });
 
-
   return (
     <div className={styles.MainContainer}>
       <div className={styles.MainLeft}>
         <div className={styles.MainLeft1}>
+        {textPosition.map((element) => (
+          <span onClick={() => handlePosition(element)}>{element.icon}</span>))}
           <div className={styles.MainLeft1Icones}>
-            <BiUndo />
-          </div>
-          <div className={styles.MainLeft1Icones}>
-            <BiRedo />
-          </div>
-          <div className={styles.MainLeft1Icones}>
-
-          
-
             <button>
               <AiOutlinePrinter />
             </button>
-
           </div>
           <div className={styles.MainLeft1Icones}>
             <MdOutlineSpellcheck />
@@ -79,11 +83,7 @@ console.log(printDiv)
             <TfiPaintRoller />
           </div>
           <div className={styles.MainLeft1IconesZoom}>
-
-           
-
             <Zoom printDiv={printDiv} />
-
           </div>
         </div>
 
@@ -98,27 +98,21 @@ console.log(printDiv)
         </div>
         <div className={styles.MainLeft5}>
           <div className={styles.MainLeft1Icones}>
-
             <button onClick={() => handleclick("bold")}>
               <ImBold />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
             <button onClick={() => handleclick("italic")}>
-
               <BiItalic />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
-
-            
             <button onClick={() => handleclick("underline")}>
-
               <AiOutlineUnderline />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
-
             <button
               onClick={() => handScratch()}
               style={{
@@ -151,7 +145,6 @@ console.log(printDiv)
           <div className={styles.MainLeft1Icones}>
             {/* <AiOutlineHighlight /> */}
             <input onChange={(e) => handleBacground(e)} type="color" />
-
           </div>
         </div>
         <div className={styles.MainLeft6}>
@@ -169,16 +162,13 @@ console.log(printDiv)
         <div className={styles.MainLeft7}>
           <div className={styles.MainLeft1Icones}>
             {" "}
-
             {/* <BiAlignLeft /> */}
             <select onChange={(e) => alignItemsFunc(e.target.value)}>
               <option> Left</option>
               <option> Center</option>
               <option> Right</option>
             </select>
-
             <BiAlignLeft />
-
           </div>
           <div className={styles.MainLeft1Icones}>
             {" "}

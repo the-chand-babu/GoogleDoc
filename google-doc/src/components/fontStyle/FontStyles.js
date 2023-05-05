@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./FontStyles.module.css";
-import { handclick, handheadingclick } from "../../../../pages/home/Home";
+import { handclick, handheadingclick } from "../../home/Home";
 
 export default function FontStyles() {
   return (

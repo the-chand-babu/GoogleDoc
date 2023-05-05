@@ -6,8 +6,8 @@ import { MdOutlineMessage } from "react-icons/md";
 import { BiVideo } from "react-icons/bi";
 import { MdPersonAddAlt } from "react-icons/md";
 import styles from "./MenuSection.module.css";
-import Menu from "../../assets/menu/Menu";
-import ProfileMenu from "../../assets/menus/profilemenu/ProfileMenu";
+import Menu from "../../components/menu/Menu";
+import ProfileMenu from "../../components/profilemenu/ProfileMenu";
 import { TbLock } from "react-icons/tb";
 
 export let nameOfFile = "";

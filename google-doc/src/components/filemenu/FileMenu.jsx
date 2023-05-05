@@ -8,21 +8,25 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import { Divider } from "@mui/material";
-import FormatBoldOutlinedIcon from "@mui/icons-material/FormatBoldOutlined";
-import ViewHeadlineOutlinedIcon from "@mui/icons-material/ViewHeadlineOutlined";
-import FormatIndentIncreaseOutlinedIcon from "@mui/icons-material/FormatIndentIncreaseOutlined";
-import FormatLineSpacingOutlinedIcon from "@mui/icons-material/FormatLineSpacingOutlined";
-import TocOutlinedIcon from "@mui/icons-material/TocOutlined";
-import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
-import CalendarViewDayOutlinedIcon from "@mui/icons-material/CalendarViewDayOutlined";
-import TagOutlinedIcon from "@mui/icons-material/TagOutlined";
-import FileOpenOutlinedIcon from "@mui/icons-material/FileOpenOutlined";
-import TableChartOutlinedIcon from "@mui/icons-material/TableChartOutlined";
-import BrokenImageOutlinedIcon from "@mui/icons-material/BrokenImageOutlined";
-import HorizontalRuleOutlinedIcon from "@mui/icons-material/HorizontalRuleOutlined";
-import FormatClearOutlinedIcon from "@mui/icons-material/FormatClearOutlined";
+import ArticleIcon from "@mui/icons-material/Article";
+import FolderOpenIcon from "@mui/icons-material/FolderOpen";
+import CopyAllIcon from "@mui/icons-material/CopyAll";
+import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import AddToDriveIcon from "@mui/icons-material/AddToDrive";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import RestoreIcon from "@mui/icons-material/Restore";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import PermDeviceInformationIcon from "@mui/icons-material/PermDeviceInformation";
+import LanguageIcon from "@mui/icons-material/Language";
+import DescriptionIcon from "@mui/icons-material/Description";
+import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
+import { handleSavePdf } from "../../home/Home";
+import style from './filemenu.module.css'
 
-export default function FormatMenu() {
+export default function FileMenu() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -58,8 +62,8 @@ export default function FormatMenu() {
   }, [open]);
 
   return (
-    <Stack direction="row" spacing={2}>
-      <div>
+    <Stack direction="row" spacing={2} >
+      <div >
         <Button
           ref={anchorRef}
           id="composition-button"
@@ -69,9 +73,10 @@ export default function FormatMenu() {
           onClick={handleToggle}
           style={{ color: "black" }}
         >
-          Format
+          File
         </Button>
         <Popper
+        className={style.menuContainer}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}
@@ -95,65 +100,75 @@ export default function FormatMenu() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>
-                      <FormatBoldOutlinedIcon />
-                      &nbsp;&nbsp; Text
-                    </MenuItem>
-
-                    <Divider />
-                    <MenuItem onClick={handleClose}>
-                      <ViewHeadlineOutlinedIcon />
-                      &nbsp;&nbsp; Paragraph styles
-                    </MenuItem>
-
-                    <MenuItem onClick={handleClose}>
-                      <FormatIndentIncreaseOutlinedIcon />
-                      &nbsp;&nbsp; Align & indent
+                    <MenuItem onClick={() => window.location.reload(true)}>
+                      <ArticleIcon />
+                      &nbsp;&nbsp; New
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <FormatLineSpacingOutlinedIcon />
-                      &nbsp;&nbsp; Line & paragraph spacing
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <TocOutlinedIcon />
-                      &nbsp;&nbsp; Columns
+                      <FolderOpenIcon />
+                      &nbsp;&nbsp; Open
                     </MenuItem>
 
                     <MenuItem onClick={handleClose}>
-                      <ListOutlinedIcon />
-                      &nbsp;&nbsp; Bullets & numbering{" "}
+                      <CopyAllIcon />
+                      &nbsp;&nbsp; Make a Copy
                     </MenuItem>
                     <Divider />
                     <MenuItem onClick={handleClose}>
-                      <CalendarViewDayOutlinedIcon />
-                      &nbsp;&nbsp; Headers & footers
+                      <PersonAddAltIcon />
+                      &nbsp;&nbsp; Share
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <TagOutlinedIcon />
-                      &nbsp;&nbsp; Page numbers
+                      <MailOutlineIcon />
+                      &nbsp;&nbsp; Email
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <FileOpenOutlinedIcon />
-                      &nbsp;&nbsp; Page orientation
+
+                    <MenuItem onClick={() => handleSavePdf()}>
+                      <SaveAltIcon />
+                      &nbsp;&nbsp; Download
                     </MenuItem>
                     <Divider />
                     <MenuItem onClick={handleClose}>
-                      <TableChartOutlinedIcon />
-                      &nbsp;&nbsp; Table
+                      <DriveFileRenameOutlineIcon />
+                      &nbsp;&nbsp; Rename
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <FolderOpenIcon />
+                      &nbsp;&nbsp; Move
                     </MenuItem>
 
                     <MenuItem onClick={handleClose}>
-                      <BrokenImageOutlinedIcon />
-                      &nbsp;&nbsp; Image
+                      <AddToDriveIcon />
+                      &nbsp;&nbsp; Add Shortcut to drive
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <HorizontalRuleOutlinedIcon />
-                      &nbsp;&nbsp; Border & lines
+                      <DeleteOutlineIcon />
+                      &nbsp;&nbsp; Move to trash
                     </MenuItem>
                     <Divider />
                     <MenuItem onClick={handleClose}>
-                      <FormatClearOutlinedIcon />
-                      &nbsp;&nbsp; Clear formatting
+                      <RestoreIcon />
+                      &nbsp;&nbsp; Version history
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <CheckCircleOutlineIcon /> &nbsp;&nbsp; Make available
+                      offline{" "}
+                    </MenuItem>
+                    <Divider />
+                    <MenuItem onClick={handleClose}>
+                      <PermDeviceInformationIcon />
+                      &nbsp;&nbsp; Details
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <LanguageIcon />
+                      &nbsp;&nbsp; Language
+                    </MenuItem>
+
+                    <MenuItem onClick={handleClose}>
+                      <DescriptionIcon /> &nbsp;&nbsp; Page setup
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <LocalPrintshopIcon /> &nbsp;&nbsp; Print
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>

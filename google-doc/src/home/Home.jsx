@@ -1,12 +1,12 @@
 import React from "react";
-import MenuSection from "../../components/menusection/MenuSection";
-import FormatingSection from "../../components/formatingsection/FormatingSection";
+import MenuSection from "../container/navbar/MenuSection";
+import FormatingSection from "../container/bottomNav/FormatingSection";
 import { useRef, useState, useEffect } from "react";
 import style from "./Home.module.css";
 import { TbList } from "react-icons/tb";
 import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 import { jsPDF } from "jspdf";
-import { nameOfFile } from "../../components/menusection/MenuSection";
+import { nameOfFile } from "../container/navbar/MenuSection";
 
 export let handclick;
 export let changeColor;
@@ -71,13 +71,6 @@ function Home() {
       document.execCommand("JustifyRight");
     }
   };
-
-  // return (
-  //   <div>
-  //     <div className={style.menusection}>
-  //       <MenuSection />
-  //     </div>
-  //     <FormatingSection />
 
   return (
     <div>
