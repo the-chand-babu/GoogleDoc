@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./FormatingSection.module.css";
 import { BiUndo, BiRedo } from "react-icons/bi";
 import { GrFormEdit, GrDown } from "react-icons/gr";
@@ -18,53 +18,129 @@ import { AiOutlineUnderline } from "react-icons/ai";
 import FontStyles from "./dilogBox/fontStyles/FontStyles";
 import Font from "./dilogBox/font/Font";
 import FontSize from "./dilogBox/fontSize/FontSize";
+import { useReactToPrint } from "react-to-print";
+import { divRef } from "../../pages/home/Home";
 
-function FormatingSection() {
+function FormatingSection({printDiv}) {
+  const inputRef = useRef();
+console.log(printDiv)
+  const handleclick = (action) => {
+    document.execCommand(action);
+  };
+
+  const handleColor = (e) => {
+    document.execCommand("foreColor", "", e.target.value);
+  };
+
+  const handleBacground = (e) => {
+    document.execCommand("backColor", "", e.target.value);
+  };
+
+ 
+
+  // const handlePrint = useReactToPrint({
+  //   content: () => divRef.current,
+  //   documentTitle: "xyz",
+  // });
+
   return (
     <div className={styles.MainContainer}>
-    <div className={styles.MainLeft}>
-      <div className={styles.MainLeft1}>
-        <div className={styles.MainLeft1Icones}><BiUndo /></div>
-        <div className={styles.MainLeft1Icones}><BiRedo /></div>
-        <div className={styles.MainLeft1Icones}><AiOutlinePrinter /></div>
-        <div className={styles.MainLeft1Icones}><MdOutlineSpellcheck /></div>
-        <div className={styles.MainLeft1Icones}><TfiPaintRoller /></div>
-        <div className={styles.MainLeft1IconesZoom}><Zoom /></div>
-      </div>
-      
-      <div className={styles.MainLeft2}>
-        <FontStyles />
-      </div>
-      <div className={styles.MainLeft3}>
-        <Font />
-      </div>
-      <div className={styles.MainLeft4}>
-        <FontSize />
-      </div>
-      <div className={styles.MainLeft5}>
-      
-        <div className={styles.MainLeft1Icones}><ImBold /></div>
-        <div className={styles.MainLeft1Icones}><BiItalic /></div>
-        <div className={styles.MainLeft1Icones}><AiOutlineUnderline /></div>
-        <div className={styles.MainLeft1Icones}><TbTextColor /></div>
-        <div className={styles.MainLeft1Icones}><AiOutlineHighlight /></div>
-      </div>
-      <div className={styles.MainLeft6}>
-      <div className={styles.MainLeft1Icones}><MdInsertLink /></div>
-      <div className={styles.MainLeft1Icones}><MdOutlineAddComment /></div>
-      <div className={styles.MainLeft1Icones}> <BiImages /></div>
-      </div>
-      <div className={styles.MainLeft7}>
-      <div className={styles.MainLeft1Icones}> <BiAlignLeft /></div>
-      <div className={styles.MainLeft1Icones}>  <RxTextAlignMiddle /></div>
-      <div className={styles.MainLeft1Icones}> <FiMoreVertical /></div>
-      </div>
+      <div className={styles.MainLeft}>
+        <div className={styles.MainLeft1}>
+          <div className={styles.MainLeft1Icones}>
+            <BiUndo />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <BiRedo />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <button>
+              <AiOutlinePrinter />
+            </button>
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <MdOutlineSpellcheck />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <TfiPaintRoller />
+          </div>
+          <div className={styles.MainLeft1IconesZoom}>
+            <Zoom printDiv={printDiv} />
+          </div>
+        </div>
+
+        <div className={styles.MainLeft2}>
+          <FontStyles />
+        </div>
+        <div className={styles.MainLeft3}>
+          <Font />
+        </div>
+        <div className={styles.MainLeft4}>
+          <FontSize />
+        </div>
+        <div className={styles.MainLeft5}>
+          <div className={styles.MainLeft1Icones}>
+            <button onClick={() => handleclick("bold")}>
+              <ImBold />
+            </button>
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <button onClick={() => handleclick("italic")}>
+              <BiItalic />
+            </button>
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <button onClick={() => handleclick("underline")}>
+              <AiOutlineUnderline />
+            </button>
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            {/* <TbTextColor /> */}
+            <input onChange={(e) => handleColor(e)} type="color" />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            {/* <AiOutlineHighlight /> */}
+            <input onChange={(e) => handleBacground(e)} type="color" />
+          </div>
+        </div>
+        <div className={styles.MainLeft6}>
+          <div className={styles.MainLeft1Icones}>
+            <MdInsertLink />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            <MdOutlineAddComment />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            {" "}
+            <BiImages />
+          </div>
+        </div>
+        <div className={styles.MainLeft7}>
+          <div className={styles.MainLeft1Icones}>
+            {" "}
+            <BiAlignLeft />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            {" "}
+            <RxTextAlignMiddle />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            {" "}
+            <FiMoreVertical />
+          </div>
+        </div>
       </div>
       <div>
-      <div className={styles.MainLeft7}>
-      <div className={styles.MainLeft1Icones}> <GrFormEdit /></div>
-      <div className={styles.MainLeft1Icones}> <GrDown /></div>
-      </div>
+        <div className={styles.MainLeft7}>
+          <div className={styles.MainLeft1Icones}>
+            {" "}
+            <GrFormEdit />
+          </div>
+          <div className={styles.MainLeft1Icones}>
+            {" "}
+            <GrDown />
+          </div>
+        </div>
       </div>
     </div>
   );

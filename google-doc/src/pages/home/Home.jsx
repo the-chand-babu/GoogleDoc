@@ -6,20 +6,27 @@ import style from "./Home.module.css";
 import { TbList } from "react-icons/tb";
 import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 
-let handclick;
+
 
 function Home() {
+
+  const printDiv = useRef();
   const [open, setOpen] = useState(true);
-  const [content, setContent] = useState("");
   const [openInput, setOpenInput] = useState(false);
-  const divRef = useRef();
+  
+  
   const handleClickmenu = () => {
     setOpen(!open);
   };
+
+
+  
+
   return (
     <div>
       <MenuSection />
-      <FormatingSection />
+    
+      <FormatingSection printDiv={printDiv}  />
       <div className={style.container}>
         {open ? (
           <span className={style.menuSpan}>
@@ -58,14 +65,15 @@ function Home() {
         )}
 
         <div
-          ref={divRef}
+        id="edit"
+        ref={printDiv}
           contentEditable={true}
           className={style.mainContainer}
         ></div>
       </div>
-     
     </div>
   );
 }
 
 export default Home;
+
