@@ -6,6 +6,7 @@ import style from "./Home.module.css";
 import { TbList } from "react-icons/tb";
 import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 import { nameOfFile } from "../container/navbar/MenuSection";
 
 export let handclick;
@@ -20,13 +21,19 @@ function Home() {
   const printDiv = useRef();
   const [open, setOpen] = useState(true);
   const [openInput, setOpenInput] = useState(false);
-
+  const [image, setImage] = useState("");
 
   handleSavePdf = () => {
-    const input = document.getElementById("my-div");
-    const pdf = new jsPDF();
-    pdf.text(input.innerText, 10, 10);
-    pdf.save(`${nameOfFile}.pdf`);
+    // const input = document.getElementById("my-div");
+    // const pdf = new jsPDF();
+    // pdf.text(input.innerText, 10, 10);
+    const mainContent = printDiv.current;
+    html2canvas(mainContent).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "PNG", 0, 0);
+      pdf.save(`${nameOfFile}.pdf`);
+    });
   };
 
   React.useEffect(() => {
@@ -76,7 +83,7 @@ function Home() {
     <div>
       <MenuSection />
 
-      <FormatingSection printDiv={printDiv} />
+      <FormatingSection printDiv={printDiv} setImage={setImage} />
 
       <div className={style.container}>
         {open ? (
@@ -121,7 +128,15 @@ function Home() {
           contentEditable={true}
           className={style.mainContainer}
           spellCheck={false}
-        ></div>
+        >
+          {image && (
+            <img
+              src={image}
+              alt="local-image"
+              style={{ width: "100%", height: "40%" }}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

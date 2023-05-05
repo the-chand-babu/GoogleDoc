@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 // import styles from './Font.module.css'
 
 export default function Font() {
@@ -20,21 +20,24 @@ export default function Font() {
     "Georgia",
     "Times New Roman",
     "Impact",
+    "Verdana",
   ];
-  
-  
-  
-  function handlefamily(e){
-    document.execCommand("fontName", "", e.target.value);
+
+  function handlefamily(e) {
+    // document.execCommand("fontName", false, e.target.value);
+    document.execCommand("fontName", false, e.target.value);
+
+    console.log(e.target.value);
   }
 
   return (
-    <select onChange={handlefamily}>
-              <option>san-sherif</option>
-              {fontFamilyList.map((element) => (
-                  <option >{element}</option>
-              
-              ))}
-             </select>
-)
+    <div>
+      <select onChange={handlefamily}>
+        {/* <option>san-sherif</option> */}
+        {fontFamilyList.map((element) => (
+          <option>{element}</option>
+        ))}
+      </select>
+    </div>
+  );
 }

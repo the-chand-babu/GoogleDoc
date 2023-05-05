@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./FormatingSection.module.css";
 import { BiUndo, BiRedo } from "react-icons/bi";
 import { GrFormEdit, GrDown } from "react-icons/gr";
@@ -19,26 +19,30 @@ import Font from "../../components/font/Font";
 import FontSize from "../../components/fontSize/FontSize";
 import { handScratch } from "../../home/Home";
 
-
 const textPosition = [
   {
-      icon: <BiUndo   style={{ fontSize: "21px" }}/>,
-      action: "undo",
-    },
-    {
-      icon: <BiRedo  style={{ fontSize: "21px" }}/>,
-      action: "redo",
-    }
-]
+    icon: <BiUndo style={{ fontSize: "21px" }} />,
+    action: "undo",
+  },
+  {
+    icon: <BiRedo style={{ fontSize: "21px" }} />,
+    action: "redo",
+  },
+];
 
-
-
-
-
-
-function FormatingSection({ printDiv }) {
+function FormatingSection({ printDiv, setImage }) {
   const inputRef = useRef();
   console.log(printDiv);
+
+  const handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith("image/")) {
+      setImage(URL.createObjectURL(file));
+    } else {
+      alert("Please select a valid image file");
+    }
+  };
+
   const handleclick = (action) => {
     document.execCommand(action);
   };
@@ -51,14 +55,11 @@ function FormatingSection({ printDiv }) {
     document.execCommand("backColor", "", e.target.value);
   };
 
-  const alignItemsFunc=()=>{
-
-  }
+  const alignItemsFunc = () => {};
 
   function handlePosition(element) {
     document.execCommand(element.action);
   }
-  
 
   // const handlePrint = useReactToPrint({
   //   content: () => divRef.current,
@@ -69,8 +70,9 @@ function FormatingSection({ printDiv }) {
     <div className={styles.MainContainer}>
       <div className={styles.MainLeft}>
         <div className={styles.MainLeft1}>
-        {textPosition.map((element) => (
-          <span onClick={() => handlePosition(element)}>{element.icon}</span>))}
+          {textPosition.map((element) => (
+            <span onClick={() => handlePosition(element)}>{element.icon}</span>
+          ))}
           <div className={styles.MainLeft1Icones}>
             <button>
               <AiOutlinePrinter />
@@ -156,7 +158,14 @@ function FormatingSection({ printDiv }) {
           </div>
           <div className={styles.MainLeft1Icones}>
             {" "}
-            <BiImages />
+            <BiImages onClick={() => inputRef.current.click()} />
+            <input
+              type="file"
+              id="file-input"
+              onChange={handleFileInputChange}
+              ref={inputRef}
+              hidden
+            />
           </div>
         </div>
         <div className={styles.MainLeft7}>
@@ -168,7 +177,6 @@ function FormatingSection({ printDiv }) {
               <option> Center</option>
               <option> Right</option>
             </select> */}
-          
           </div>
           <div className={styles.MainLeft1Icones}>
             {" "}
