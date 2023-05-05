@@ -1,50 +1,19 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import React from 'react'
+import styles from './Zoom.module.css'
 
-export default function BasicMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+export default function Zoom() {
   return (
-    <div>
-      <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        style={{ backgroundColor: ' background-color: rgb(238, 244, 248);', color: 'black' }}
-
-      
-      >
-        Zoom
-      </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-      <MenuItem onClick={handleClose}>Fit</MenuItem>
-        <MenuItem onClick={handleClose}>50%</MenuItem>
-        <MenuItem onClick={handleClose}>75%</MenuItem>
-        <MenuItem onClick={handleClose}>90%</MenuItem>
-        <MenuItem onClick={handleClose}>100%</MenuItem>
-        <MenuItem onClick={handleClose}>1255</MenuItem>
-        <MenuItem onClick={handleClose}>150%</MenuItem>
-        <MenuItem onClick={handleClose}>200%</MenuItem>
-      </Menu>
-    </div>
-  );
+    <select className={styles.option1}>
+    <option>Fit</option>
+    <hr/>
+    <option className={styles.option}>50%</option>
+    <option className={styles.option}>75%</option>
+    <option className={styles.option}>90%</option>
+    <option className={styles.option}>100%</option>
+    <option className={styles.option}>125%</option>
+    <option className={styles.option}>150%</option>
+    <option className={styles.option}>200%</option>
+  
+   </select>
+  )
 }
