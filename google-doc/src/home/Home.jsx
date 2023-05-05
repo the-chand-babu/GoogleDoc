@@ -20,7 +20,7 @@ function Home() {
   const printDiv = useRef();
   const [open, setOpen] = useState(true);
   const [openInput, setOpenInput] = useState(false);
-  const divRef = useRef();
+
 
   handleSavePdf = () => {
     const input = document.getElementById("my-div");
@@ -117,9 +117,10 @@ function Home() {
 
         <div
           id="my-div"
-          ref={divRef}
+          ref={printDiv}
           contentEditable={true}
           className={style.mainContainer}
+          spellCheck={false}
         ></div>
       </div>
     </div>
