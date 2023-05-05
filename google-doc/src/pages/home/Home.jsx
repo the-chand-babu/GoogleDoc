@@ -9,9 +9,12 @@ import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 
 
 function Home() {
+
+  const printDiv = useRef();
   const [open, setOpen] = useState(true);
   const [openInput, setOpenInput] = useState(false);
-  const divRef = useRef();
+  
+  
   const handleClickmenu = () => {
     setOpen(!open);
   };
@@ -23,7 +26,7 @@ function Home() {
     <div>
       <MenuSection />
     
-      <FormatingSection divRef={divRef} />
+      <FormatingSection printDiv={printDiv}  />
       <div className={style.container}>
         {open ? (
           <span className={style.menuSpan}>
@@ -63,7 +66,7 @@ function Home() {
 
         <div
         id="edit"
-          ref={divRef}
+        ref={printDiv}
           contentEditable={true}
           className={style.mainContainer}
         ></div>
@@ -73,3 +76,4 @@ function Home() {
 }
 
 export default Home;
+

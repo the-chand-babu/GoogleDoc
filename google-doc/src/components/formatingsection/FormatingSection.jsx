@@ -18,11 +18,12 @@ import { AiOutlineUnderline } from "react-icons/ai";
 import FontStyles from "./dilogBox/fontStyles/FontStyles";
 import Font from "./dilogBox/font/Font";
 import FontSize from "./dilogBox/fontSize/FontSize";
-// import { useReactToPrint } from "react-to-print";
+import { useReactToPrint } from "react-to-print";
+import { divRef } from "../../pages/home/Home";
 
-function FormatingSection({ divRef }) {
+function FormatingSection({printDiv}) {
   const inputRef = useRef();
-
+console.log(printDiv)
   const handleclick = (action) => {
     document.execCommand(action);
   };
@@ -35,13 +36,13 @@ function FormatingSection({ divRef }) {
     document.execCommand("backColor", "", e.target.value);
   };
 
-  // const handlePrint=useReactToPrint({
-    
-  // })
+ 
 
-  const handlePrint=()=>{
+  // const handlePrint = useReactToPrint({
+  //   content: () => divRef.current,
+  //   documentTitle: "xyz",
+  // });
 
-  }
   return (
     <div className={styles.MainContainer}>
       <div className={styles.MainLeft}>
@@ -53,7 +54,7 @@ function FormatingSection({ divRef }) {
             <BiRedo />
           </div>
           <div className={styles.MainLeft1Icones}>
-            <button onClick={handlePrint}>
+            <button>
               <AiOutlinePrinter />
             </button>
           </div>
@@ -64,7 +65,7 @@ function FormatingSection({ divRef }) {
             <TfiPaintRoller />
           </div>
           <div className={styles.MainLeft1IconesZoom}>
-            <Zoom />
+            <Zoom printDiv={printDiv} />
           </div>
         </div>
 
