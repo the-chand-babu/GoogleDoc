@@ -6,13 +6,14 @@ import style from "./Home.module.css";
 import { TbList } from "react-icons/tb";
 import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
 import { jsPDF } from "jspdf";
-import "jspdf-autotable";
+import { nameOfFile } from "../../components/menusection/MenuSection";
 
 export let handclick;
 export let changeColor;
 export let backColor;
 export let handheadingclick;
 export let alignItemsFunc;
+export let handleSavePdf;
 
 function Home() {
   const [open, setOpen] = useState(true);
@@ -22,28 +23,26 @@ function Home() {
 
   ////For the Pdf converter
 
-  // const handleSavePdf = () => {
-  //   const doc = new jsPDF();
-  //   // doc.autoTable({ html: "#my-table" });
-  //   // doc.save("my-pdf-file.pdf");
-  //   if (divRef.current != undefined) {
-  //     doc.autoTable({ html: "#my-table" });
-  //     doc.save("my-pdf-file.pdf");
-  //   }
-  // };
+  handleSavePdf = () => {
+    const input = document.getElementById("my-div");
+    const pdf = new jsPDF();
+    pdf.text(input.innerText, 10, 10);
+    pdf.save(`${nameOfFile}.pdf`);
+    // });
+  };
 
-  // React.useEffect(() => {
-  //   const handleKeyDown = (event) => {
-  //     if (event.ctrlKey && event.key === "s") {
-  //       event.preventDefault();
-  //       handleSavePdf();
-  //     }
-  //   };
-  //   document.addEventListener("keydown", handleKeyDown);
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, []);
+  React.useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+        handleSavePdf();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   ////////////////////////////////////////////
 
@@ -120,7 +119,7 @@ function Home() {
         )}
 
         <div
-          id="my-table"
+          id="my-div"
           ref={divRef}
           contentEditable={true}
           className={style.mainContainer}
