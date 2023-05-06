@@ -19,22 +19,25 @@ const fontFamilyList = [
 
 export default function Font() {
 
+  const handleChange=(e)=>{
+    document.execCommand("fontName","",e.target.value);
+   
 
-  const handleFontStyle=(e)=>{
-    document.execCommand("fontName", false, e.target.value);
 
-  }
+  } 
+
+
+  
 
   return (
-    <select
-    // className={style.fontStyle}
-    // id="fontStyle"
-    onChange={handleFontStyle}
-  >
-    <option>{"serif"}</option>
-    {fontFamilyList.map((x) => (
-      <option key={x}>{x}</option>
-    ))}
+  <select onChange={handleChange}>
+    {
+      fontFamilyList.map((item)=>{
+
+        return <option value={item}>{item}</option>
+      })
+    }
+  
   </select>
 )
 }
