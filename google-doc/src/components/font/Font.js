@@ -25,14 +25,14 @@ export default function Font() {
 
   function handlefamily(e) {
     // document.execCommand("fontName", false, e.target.value);
-    document.execCommand("fontName", false, e.target.value);
+    document.execCommand("fontName", "", e.target.value);
 
     console.log(e.target.value);
   }
 
   return (
     <div>
-      <select onChange={handlefamily}>
+      <select onChange={(e) => handlefamily(e)}>
         {/* <option>san-sherif</option> */}
         {fontFamilyList.map((element) => (
           <option>{element}</option>

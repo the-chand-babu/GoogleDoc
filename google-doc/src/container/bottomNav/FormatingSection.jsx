@@ -18,7 +18,7 @@ import FontStyles from "../../components/fontStyle/FontStyles";
 import Font from "../../components/font/Font";
 import FontSize from "../../components/fontSize/FontSize";
 import { handScratch } from "../../home/Home";
-
+import { nameOfFile } from "../navbar/MenuSection";
 const textPosition = [
   {
     icon: <BiUndo style={{ fontSize: "21px" }} />,
@@ -41,6 +41,26 @@ function FormatingSection({ printDiv, setImage }) {
     } else {
       alert("Please select a valid image file");
     }
+  };
+
+  // print function
+  const printDivFunction = (divId, title) => {
+    let mywindow = window.open(
+      "",
+      "PRINT",
+      "height=650,width=900,top=100,left=100"
+    );
+    mywindow.document.write(`<html><head><title>${title}</title>`);
+    mywindow.document.write("</head><body>");
+    mywindow.document.write(document.getElementById(divId).innerHTML);
+    mywindow.document.write("</body></html>");
+
+    mywindow.document.close(); //necessary for IE>=10
+    mywindow.focus(); //necessary for IE>=10
+
+    mywindow.print();
+    mywindow.close();
+    return true;
   };
 
   const handleclick = (action) => {
@@ -74,7 +94,7 @@ function FormatingSection({ printDiv, setImage }) {
             <span onClick={() => handlePosition(element)}>{element.icon}</span>
           ))}
           <div className={styles.MainLeft1Icones}>
-            <button>
+            <button onClick={() => printDivFunction("my-div", nameOfFile)}>
               <AiOutlinePrinter />
             </button>
           </div>
