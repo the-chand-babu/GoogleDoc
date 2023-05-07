@@ -110,10 +110,10 @@ function FormatingSection({ printDiv, setImage }) {
       <div className={styles.MainLeft}>
         <div className={styles.MainLeft1}>
           {textPosition.map((element) => (
-            <span onClick={() => handlePosition(element)}>{element.icon}</span>
+            <span className={styles.MainLeft1Icones} onClick={() => handlePosition(element)}>{element.icon}</span>
           ))}
-          <div className={styles.MainLeft1Icones}>
-            <button onClick={() => printDivFunction("my-div", nameOfFile)}>
+          <div >
+            <button className={styles.MainLeft1Icones} onClick={() => printDivFunction("my-div", nameOfFile)}>
               <AiOutlinePrinter />
             </button>
           </div>
@@ -138,22 +138,22 @@ function FormatingSection({ printDiv, setImage }) {
           <FontSize />
         </div>
         <div className={styles.MainLeft5}>
-          <div className={styles.MainLeft1Icones}>
+          <div >
             <button onClick={() => handleclick("bold")}>
-              <ImBold />
+              <ImBold className={styles.MainLeft1Icones} />
             </button>
           </div>
-          <div className={styles.MainLeft1Icones}>
+          <div >
             <button onClick={() => handleclick("italic")}>
-              <BiItalic />
+              <BiItalic className={styles.MainLeft1Icones}/>
             </button>
           </div>
-          <div className={styles.MainLeft1Icones}>
-            <button onClick={() => handleclick("underline")}>
-              <AiOutlineUnderline />
+          <div>
+            <button  onClick={() => handleclick("underline")}>
+              <AiOutlineUnderline className={styles.MainLeft1Icones} />
             </button>
           </div>
-          <div className={styles.MainLeft1Icones}>
+          <div>
             <button
               onClick={() => handleScratch()}
               style={{
@@ -162,11 +162,12 @@ function FormatingSection({ printDiv, setImage }) {
                 fontWeight: "bold",
               }}
             >
-              <StrikethroughSIcon />
+              <StrikethroughSIcon className={styles.MainLeft1Icones} />
             </button>
           </div>
           <div className={styles.MainLeft1Icones}>
             <label
+            className={styles.textColor}
               htmlFor="colorPicker"
               onClick={(e) => e.stopPropagation()}
               onMouseDown={(e) => e.preventDefault()
@@ -187,6 +188,7 @@ function FormatingSection({ printDiv, setImage }) {
 
           <div className={styles.MainLeft1Icones}>
           <label
+          className={styles.textColor}
               htmlFor="color"
               onClick={(e) => e.stopPropagation()}
               onMouseDown={(e) => e.preventDefault()
@@ -230,7 +232,7 @@ function FormatingSection({ printDiv, setImage }) {
           </div>
         </div>
         <div className={styles.MainLeft7}>
-          <div className={styles.MainLeft1Icones}>
+          <div className={styles.alignItem}>
             <button
               className={styles.leftAlign}
               onClick={() => handleAlign("justifyLeft")}

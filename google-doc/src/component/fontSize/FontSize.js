@@ -11,7 +11,7 @@ function FontSize() {
     
   return (
     <div className={styles.options}>
-    <select id="fontSize" onChange={handleFontSize}>
+    <select className={styles.select} id="fontSize" onChange={handleFontSize}>
       {fontSizeList.map((ele) => (
         <option key={ele}>{ele}</option>
       ))}
